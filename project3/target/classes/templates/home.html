@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Job Portal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* BODY */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f3f5f9, #e9edf5);
+            color: #111;
+            padding: 20px;
+        }
+
+        /* MAIN WRAPPER */
+        .wrapper {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        /* CTA BUTTON */
+        .cta {
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cta:hover {
+            background: #f5f5f5;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        /* TITLE */
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        /* SEARCH BAR */
+        .search-box {
+            display: flex;
+            justify-content: center;
+            background: #fff;
+            border-radius: 40px;
+            padding: 10px;
+            width: 600px;
+            margin: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px;
+            border-radius: 40px;
+        }
+
+        .search-box select {
+            border: none;
+            outline: none;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        /* SEARCH BUTTON */
+        .search-btn {
+            background: #ff6a00;
+            border: none;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* TAGS */
+        .tags {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .tags span {
+            margin: 0 8px;
+        }
+
+        /* HERO IMAGE */
+        .hero-img {
+            margin-top: 50px;
+            width: 350px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* FLOAT ANIMATION */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* FLOATING ICONS */
+        .icon {
+            position: absolute;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .icon1 { top: 200px; left: 200px; }
+        .icon2 { top: 250px; right: 200px; }
+
+        /* TRUST BAR */
+        .trust {
+            margin-top: 60px;
+            background: #0f172a;
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .trust span {
+            margin: 0 20px;
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .search-box {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-img {
+                width: 250px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">Quietly</div>
+
+        <div class="nav-links">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/jobs}">Find Jobs</a> <!-- ✅ WORKING LINK -->
+            <a href="#">Find Candidates</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <button class="cta" onclick="window.location.href='/jobs'">Get Started →</button>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+
+        <h1 th:text="${message}">Modernizing the Job Search Experience</h1>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input type="text" placeholder="Search your needs...">
+            <select>
+                <option>Web Development</option>
+                <option>Design</option>
+                <option>Marketing</option>
+            </select>
+
+            <!-- ✅ SEARCH REDIRECT -->
+            <button class="search-btn" onclick="window.location.href='/jobs'">🔍</button>
+        </div>
+
+        <!-- TAGS -->
+        <div class="tags">
+            Popular Jobs:
+            <span>Designer</span>
+            <span>Web Developer</span>
+            <span>Software Engineer</span>
+        </div>
+
+        <!-- FLOATING ICONS -->
+        <div class="icon icon1">💼</div>
+        <div class="icon icon2">⭐</div>
+
+        <!-- HERO IMAGE -->
+        <img class="hero-img"
+             src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+             alt="hero">
+
+    </div>
+
+    <!-- TRUST BAR -->
+    <div class="trust">
+        Trusted by 1M+ Businesses |
+        <span>Luminous</span>
+        <span>Lightbox</span>
+        <span>FocalPoint</span>
+        <span>Polymath</span>
+    </div>
+
+</div>
+
+</body>
+</html>

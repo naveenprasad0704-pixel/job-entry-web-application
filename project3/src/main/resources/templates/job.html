@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Jobs - Smart Job Portal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f3f5f9, #e9edf5);
+            padding: 20px;
+        }
+
+        .wrapper {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title h1 {
+            font-size: 2.5rem;
+        }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .job-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .company {
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+        }
+
+        .apply-btn:hover {
+            background: #333;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #555;
+        }
+
+        .back:hover {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">Quietly</div>
+        <div class="nav-links">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/jobs}">Find Jobs</a>
+            <a href="#">Find Candidates</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <!-- TITLE -->
+    <div class="title">
+        <h1>Available Jobs</h1>
+    </div>
+
+    <!-- JOB LIST -->
+    <div class="job-grid">
+
+        <!-- 7 JOBS -->
+        <div class="job-card">
+            <div class="job-title">Software Engineer</div>
+            <div class="company">Google</div>
+            <div class="details">📍 Remote <br> 💰 $120,000</div>
+            <a th:href="@{/login}" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">Frontend Developer</div>
+            <div class="company">Amazon</div>
+            <div class="details">📍 New York <br> 💰 $110,000</div>
+            <a th:href="@{/login}" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">Backend Developer</div>
+            <div class="company">Microsoft</div>
+            <div class="details">📍 Seattle <br> 💰 $130,000</div>
+            <a th:href="@{/login}" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">UI/UX Designer</div>
+            <div class="company">Adobe</div>
+            <div class="details">📍 San Francisco <br> 💰 $100,000</div>
+            <a th:href="@{/login}" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">Data Analyst</div>
+            <div class="company">Netflix</div>
+            <div class="details">📍 Los Angeles <br> 💰 $115,000</div>
+            <a th:href="@{/login}" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">DevOps Engineer</div>
+            <div class="company">IBM</div>
+            <div class="details">📍 Austin <br> 💰 $125,000</div>
+            <a th:href="@{/login}" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">Mobile App Developer</div>
+            <div class="company">Meta</div>
+            <div class="details">📍 Remote <br> 💰 $118,000</div>
+            <a th:href="@{/login}" class="apply-btn">Apply Now</a>
+        </div>
+
+    </div>
+
+    <a th:href="@{/}" class="back">← Back to Home</a>
+
+</div>
+
+</body>
+</html>
